@@ -20,8 +20,6 @@ function clearTable() {
 }
 
 function displayLibrary() {
-  clearTable();
-
   const library = document.querySelector('#library')
   for(let i = 0; i < myLibrary.length; i++) {
     const book = myLibrary[i]
@@ -51,10 +49,15 @@ function displayLibrary() {
 
 }
 
+function refreshLibrary() {
+  clearTable()
+  displayLibrary()
+}
+
 function removeBook(event) {
   const dataIndex = event.target.getAttribute('data-index');
   myLibrary.splice(dataIndex, 1)
-  displayLibrary();
+  refreshLibrary();
 }
 
 

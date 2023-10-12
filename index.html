@@ -8,6 +8,25 @@
     <script src="./library.js" defer></script>
 </head>
 <body>
+  <header class="header">
+    <h1>My Library</h1>
+    <button class="add-button">Add New Book</button>
+  </header>
+  <form action="get" id="add-book">
+    <h2>Enter Book Information</h2>
+    <label for="book-title">Book Title:</label>
+    <input type="text" id="book-title">
+    <label for="book-author">Author:</label>
+    <input type="text" id="book-author">
+    <label for="book-pages">Page Count:</label>
+    <input type="text" id="book-pages">
+    <p>Have you read it?:</p>
+    <input type="radio" id="book-read-yes" value="true" name="read-book">
+    <label for="book-read-yes">Yes</label><br>
+    <input type="radio" id="book-read-no" value="false" name="read-book">
+    <label for="book-read-no">No</label><br>
+    <input type="submit" value="Submit">
+  </form>
     <table id="library">
         <tr id="headers">
           <th>Book Title</th>
