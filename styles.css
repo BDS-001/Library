@@ -6,46 +6,53 @@
 body {
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.table-container {
+  margin: 20px;
 }
 
 #library {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   }
   
-  #library td, #library th {
-    border: 1px solid #ddd;
-    padding: 8px;
-    color: black;
-  }
-  
-  #library tr:nth-child(even){background-color: var(--evenRow);}
-  #library tr:nth-child(odd){background-color: var(--oddRow);}
-  
-  #library tr:hover {background-color: #ddd;}
-  
-  #library th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #aa7604;
-    color: white;
-  }
+#library td, #library th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  color: black;
+}
 
-  .remove-book {
-    width: 20px;
-  }
+#library tr:nth-child(even){background-color: var(--evenRow);}
+#library tr:nth-child(odd){background-color: var(--oddRow);}
 
-  .remove {
-    background-color: rgb(185, 0, 0);
-    font-weight: bold;
-    color: #FFFFFF;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+#library tr:hover {background-color: #ddd;}
+
+#library th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #aa7604;
+  color: white;
+}
+
+.remove-book {
+  width: 20px;
+}
+
+.remove {
+  background-color: rgb(185, 0, 0);
+  font-weight: bold;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .remove:hover {
@@ -58,7 +65,7 @@ body {
 
 
 
-input[type=text], select {
+input[type=text], input[type=number], select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;

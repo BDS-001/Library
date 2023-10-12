@@ -7,8 +7,10 @@ function Book(author, title, pages, read) {
   this.read = read
 }
 
-function addBookToLibrary() {
-  // do stuff here
+function addBookToLibrary(event) {
+  event.preventDefault()
+  
+
 }
 
 function clearTable() {
@@ -61,9 +63,32 @@ function removeBook(event) {
 }
 
 
+function openBookForm() {
+  const bookForm = document.querySelector('#add-book')
+  bookForm.style.display = '';
+}
 
+function closeBookForm() {
+  const bookForm = document.querySelector('#add-book')
+  bookForm.reset()
+  bookForm.style.display = 'none';
+}
 
+function addBookEventListener() {
+  const addButton = document.querySelector('.add-button')
+  addButton.addEventListener('click', openBookForm)
+}
 
+function submitFormEventListener() {
+  const submit = document.querySelector('#submit')
+  submit.addEventListener('click', addBookToLibrary)
+}
+
+function main() {
+  addBookEventListener()
+  closeBookForm()
+  displayLibrary()
+}
 
 
 
@@ -74,4 +99,4 @@ let tmp = new Book('Dr. Seuss', 'The Cat in the Hat', 61, false)
 myLibrary.push(tmp)
 tmp = new Book('J. K. Rowling', 'Harry Potter and the Goblet of Fire', 746, true)
 myLibrary.push(tmp)
-displayLibrary()
+main()
