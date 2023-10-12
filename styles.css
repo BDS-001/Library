@@ -1,5 +1,6 @@
 :root {
-    --white: white;   
+    --evenRow: white;
+    --oddRow: #f2f2f2;   
 }
 
 #library {
@@ -14,7 +15,8 @@
     color: black;
   }
   
-  #library tr:nth-child(even){background-color: #f2f2f2;}
+  #library tr:nth-child(even){background-color: var(--evenRow);}
+  #library tr:nth-child(odd){background-color: var(--oddRow);}
   
   #library tr:hover {background-color: #ddd;}
   
@@ -30,11 +32,21 @@
     width: 20px;
   }
 
-  .remove-book button {
-    width: 100%;
-    background-color: red;
+  .remove {
+    background-color: rgb(185, 0, 0);
     font-weight: bold;
-    color: white;
+    color: #FFFFFF;
+    padding: 10px 20px;
     border: none;
-    border-radius: 8px;
-  }
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.remove:hover {
+    background-color: #850000;
+}
+
+.remove:active {
+    transform: scale(0.95);
+}

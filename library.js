@@ -40,6 +40,7 @@ function displayLibrary() {
     removeBookButtonCol.className = 'remove-book'
     let removeBookButton = document.createElement('button')
     removeBookButton.innerHTML = 'REMOVE'
+    removeBookButton.className = 'remove'
     removeBookButton.dataset.index = i
     removeBookButton.addEventListener('click', removeBook)
     removeBookButtonCol.append(removeBookButton)
@@ -55,6 +56,12 @@ function removeBook(event) {
   myLibrary.splice(dataIndex, 1)
   displayLibrary();
 }
+
+
+
+
+
+
 
 
 
