@@ -22,10 +22,11 @@ function displayLibrary() {
   clearTable();
 
   const library = document.querySelector('#library')
-  myLibrary.forEach(book => {
+  for(let i = 0; i < myLibrary.length; i++) {
+    const book = myLibrary[i]
     const row = document.createElement('tr')
     const bookInfo = Object.values(book)
-
+  
 
     bookInfo.forEach(bookInfo => {
       let bookData = document.createElement('td')
@@ -37,11 +38,12 @@ function displayLibrary() {
     removeBookButtonCol.className = 'remove-book'
     let removeBookButton = document.createElement('button')
     removeBookButton.innerHTML = 'REMOVE'
+    removeBookButton.dataset.index = i
     removeBookButtonCol.append(removeBookButton)
     row.append(removeBookButtonCol)
 
     library.append(row)
-  });
+  };
 
 }
 
