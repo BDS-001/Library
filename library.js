@@ -13,6 +13,7 @@ function addBookToLibrary() {
 
 function clearTable() {
   const clear = document.querySelectorAll('.book')
+  console.log(clear)
   clear.forEach(book => {
     book.remove()
   });
@@ -25,6 +26,7 @@ function displayLibrary() {
   for(let i = 0; i < myLibrary.length; i++) {
     const book = myLibrary[i]
     const row = document.createElement('tr')
+    row.className = 'book'
     const bookInfo = Object.values(book)
   
 
@@ -39,12 +41,19 @@ function displayLibrary() {
     let removeBookButton = document.createElement('button')
     removeBookButton.innerHTML = 'REMOVE'
     removeBookButton.dataset.index = i
+    removeBookButton.addEventListener('click', removeBook)
     removeBookButtonCol.append(removeBookButton)
     row.append(removeBookButtonCol)
 
     library.append(row)
   };
 
+}
+
+function removeBook(event) {
+  const dataIndex = event.target.getAttribute('data-index');
+  myLibrary.splice(dataIndex, 1)
+  displayLibrary();
 }
 
 

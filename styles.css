@@ -11,6 +11,7 @@
   #library td, #library th {
     border: 1px solid #ddd;
     padding: 8px;
+    color: black;
   }
   
   #library tr:nth-child(even){background-color: #f2f2f2;}
