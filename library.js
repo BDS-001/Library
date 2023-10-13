@@ -9,7 +9,21 @@ function Book(author, title, pages, read) {
 
 function addBookToLibrary(event) {
   event.preventDefault()
+
+  const title = document.querySelector('#book-title').value
+  const author = document.querySelector('#book-title').value
+  const pageCount = document.querySelector('#book-pages').value
+  const read = document. querySelector('input[type = radio]:checked').value;
+  const newBook = new Book(title, author, pageCount, read)
+  myLibrary.push(newBook)
+
   closeBookForm()
+  refreshLibrary()
+}
+
+function cancelForm(event) {
+  event.preventDefault()
+  closeBookForm();
 }
 
 function clearTable() {
@@ -83,11 +97,17 @@ function submitFormEventListener() {
   submit.addEventListener('click', addBookToLibrary)
 }
 
+function cancelFormEventListener() {
+  const cancel = document.querySelector('#cancel')
+  cancel.addEventListener('click', cancelForm)
+}
+
 function main() {
   addBookEventListener()
   closeBookForm()
   displayLibrary()
   submitFormEventListener()
+  cancelFormEventListener()
 }
 
 
@@ -95,8 +115,8 @@ function main() {
 
 
 // testing
-let tmp = new Book('Dr. Seuss', 'The Cat in the Hat', 61, false)
+let tmp = new Book('Dr. Seuss', 'The Cat in the Hat', 61, 'no')
 myLibrary.push(tmp)
-tmp = new Book('J. K. Rowling', 'Harry Potter and the Goblet of Fire', 746, true)
+tmp = new Book('J. K. Rowling', 'Harry Potter and the Goblet of Fire', 746, 'yes')
 myLibrary.push(tmp)
 main()

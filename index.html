@@ -21,11 +21,14 @@
     <label for="book-pages">Page Count:</label>
     <input type="number" id="book-pages">
     <p>Have you read it?:</p>
-    <input type="radio" id="book-read-yes" value="true" name="read-book">
+    <input type="radio" id="book-read-yes" value="yes" name="read-book">
     <label for="book-read-yes">Yes</label><br>
-    <input type="radio" id="book-read-no" value="false" name="read-book">
+    <input type="radio" id="book-read-no" value="no" name="read-book">
     <label for="book-read-no">No</label><br>
-    <input type="submit" value="Submit" id="submit">
+    <div class="form-button-container">
+      <input type="submit" value="Submit" id="submit">
+      <button id="cancel">Cancel</button>
+    </div>
   </form>
   <div class="table-container">
     <table id="library">
