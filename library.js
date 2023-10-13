@@ -13,8 +13,12 @@ function addBookToLibrary(event) {
   const title = document.querySelector('#book-title').value
   const author = document.querySelector('#book-title').value
   const pageCount = document.querySelector('#book-pages').value
-  const read = document. querySelector('input[type = radio]:checked').value;
-  const newBook = new Book(title, author, pageCount, read)
+  const read = document.querySelector('input[type = radio]:checked');
+  if (read === null) {
+    console.log('it is null')
+    return
+  }
+  const newBook = new Book(title, author, pageCount, read.value)
   myLibrary.push(newBook)
 
   closeBookForm()
@@ -28,7 +32,6 @@ function cancelForm(event) {
 
 function clearTable() {
   const clear = document.querySelectorAll('.book')
-  console.log(clear)
   clear.forEach(book => {
     book.remove()
   });
