@@ -9,6 +9,7 @@ function Book(author, title, pages, read) {
 
 function addBookToLibrary(event) {
   event.preventDefault()
+  closeBookForm()
 }
 
 function clearTable() {
