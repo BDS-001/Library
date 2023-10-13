@@ -155,3 +155,8 @@ input[type=submit]:hover,
   justify-content: space-between;
   align-items: center;
 }
+
+.read,
+.read-header {
+  width: 100px;
+}
