@@ -59,7 +59,8 @@ body {
     background-color: #850000;
 }
 
-.remove:active {
+.remove:active,
+.read button:active {
     transform: scale(0.95);
 }
 
@@ -92,7 +93,8 @@ input[type=submit] {
 }
 
 input[type=submit]:hover,
-#cancel:hover {
+#cancel:hover,
+.read button:hover {
   filter: brightness(85%);
 }
 
@@ -137,4 +139,19 @@ input[type=submit]:hover,
 
 .add-button:hover {
   background-color: #0052a3;
+}
+
+.read button {
+  margin-left: 10px;
+  background-color: #0074e4;
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 8px;
+}
+
+.read {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
