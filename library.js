@@ -7,6 +7,14 @@ function Book(author, title, pages, read) {
   this.read = read
 }
 
+Book.prototype.changeRead = function() {
+  if (this.read === 'no') {
+    this.read = 'yes'
+  } else {
+    this.read = 'no'
+  }
+}
+
 function addBookToLibrary(event) {
   event.preventDefault()
 
@@ -39,12 +47,7 @@ function clearTable() {
 
 function toggleRead(event) {
   const index = event.target.getAttribute('data-index');
-  const currentRead = myLibrary[index].read
-  if (currentRead === 'no') {
-    myLibrary[index].read = 'yes'
-  } else {
-    myLibrary[index].read = 'no'
-  }
+  myLibrary[index].changeRead()
   refreshLibrary()
 }
 
