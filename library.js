@@ -1,17 +1,19 @@
 const myLibrary = [];
 
-function Book(author, title, pages, read) {
+class Book {
+  constructor(author, title, pages, read) {
   this.title = title
   this.author = author
   this.pages = pages
   this.read = read
-}
+  }
 
-Book.prototype.changeRead = function() {
-  if (this.read === 'no') {
-    this.read = 'yes'
-  } else {
-    this.read = 'no'
+  changeRead() {
+    if (this.read === 'no') {
+      this.read = 'yes'
+    } else {
+      this.read = 'no'
+    }
   }
 }
 
