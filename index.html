@@ -16,22 +16,40 @@
 
   <form action="get" id="add-book">
     <h2>Enter Book Information</h2>
-    <label for="book-title">Book Title:</label>
-    <input type="text" id="book-title">
-    <label for="book-author">Author:</label>
-    <input type="text" id="book-author">
-    <label for="book-pages">Page Count:</label>
-    <input type="number" id="book-pages">
+
+    <label id="book-title-label">Book Title:
+        <input type="text" id="book-title" required maxlength="110">
+        <span class="error"></span><br><br>
+    </label>
+
+    <label id="book-author-label">Author:
+        <input type="text" id="book-author" required>
+        <span class="error"></span><br><br>
+    </label>
+
+    <label id="book-pages-label">Page Count:
+        <input type="number" id="book-pages" required>
+        <span class="error"></span><br><br>
+    </label>
+
     <p>Have you read it?:</p>
-    <input type="radio" id="book-read-yes" value="yes" name="read-book">
-    <label for="book-read-yes">Yes</label><br>
-    <input type="radio" id="book-read-no" value="no" name="read-book">
-    <label for="book-read-no">No</label><br>
+
+    <label id="book-read-yes-label">
+        <input type="radio" id="book-read-yes" value="yes" name="read-book" required> Yes
+        <span class="error"></span><br><br>
+    </label><br>
+
+    <label id="book-read-no-label">
+        <input type="radio" id="book-read-no" value="no" name="read-book" required> No
+        <span class="error"></span><br><br>
+    </label><br>
+
     <div class="form-button-container">
-      <input type="submit" value="Submit" id="submit">
-      <button id="cancel">Cancel</button>
+        <input type="submit" value="Submit" id="submit">
+        <button id="cancel">Cancel</button>
     </div>
-  </form>
+</form>
+
   <div class="table-container">
     <table id="library">
       <tr id="headers">

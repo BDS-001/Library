@@ -137,26 +137,50 @@ function main() {
   cancelFormEventListener()
 }
 
+
 const formValidation = (function() {
   const title = document.getElementById('book-title')
+  const titleError = document.querySelector('#book-title-label .error')
+
   const author = document.getElementById('book-author')
+  const authorError = document.querySelector('#book-author-label .error')
+
   const pageCount = document.getElementById('book-pages')
+  const pageCountError = document.querySelector('#book-pages-label .error')
+
+  function showError(input, error, valueMisingMessage = '', typeMismatchMessage = '', tooShortMessage = '') {
+    if (input.validity.valueMissing) {
+      error.textContent = valueMisingMessage;
+    } else if (input.validity.typeMismatch) {
+      error.textContent = typeMismatchMessage;
+    } else if (input.validity.tooShort) {
+      error.textContent = tooShortMessage;
+    }
+    error.className = "error active";
+  }
+  
+  function handleInputValidation(inputField, errorField, valueMisingMessage, typeMismatchMessage, tooShortMessage) {
+    if (inputField.validity.valid) {
+        errorField.textContent = "";
+        errorField.className = "error";
+    } else {
+        showError(inputField, errorField, valueMisingMessage, typeMismatchMessage, tooShortMessage);
+    }
+}
   
   title.addEventListener("input", (event) => {
-    // Each time the user types something, we check if the
-    // form fields are valid.
+    handleInputValidation(title, titleError, 'you need to enter a book title');
+  });
   
-    if (title.validity.valid) {
-      // In case there is an error message visible, if the field
-      // is valid, we remove the error message.
-      emailError.textContent = ""; // Reset the content of the message
-      emailError.className = "error"; // Reset the visual state of the message
-    } else {
-      // If there is still an error, show the correct error
-      showError();
-    }
+  pageCount.addEventListener("input", (event) => {
+    handleInputValidation(pageCount, pageCountError, 'You need to enter a page count', 'Only enter numbers');
+  });
+  
+  author.addEventListener("input", (event) => {
+    handleInputValidation(author, authorError, 'you need to enter a author title');
   });
 })();
+
 
 
 
