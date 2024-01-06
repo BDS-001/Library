@@ -148,26 +148,26 @@ const formValidation = (function() {
   const pageCount = document.getElementById('book-pages')
   const pageCountError = document.querySelector('#book-pages-label .error')
 
-  function showError(input, error, valueMissingMessage, typeMismatchMessage, tooShortMessage, patternMismatchMessage) {
-    console.log(valueMissingMessage, typeMismatchMessage, tooShortMessage, patternMismatchMessage)
+  function showError(input, error, valueMissingMessage, typeMismatchMessage, tooShortMessage, badInputMessage) {
+    console.log(valueMissingMessage, typeMismatchMessage, tooShortMessage, badInputMessage)
     if (input.validity.valueMissing) {
         error.textContent = valueMissingMessage;
     } else if (input.validity.typeMismatch) {
         error.textContent = typeMismatchMessage;
     } else if (input.validity.tooShort) {
         error.textContent = tooShortMessage;
-    } else if (input.validity.patternMismatch) {
-        error.textContent = patternMismatchMessage;
+    } else if (input.validity.badInput) {
+        error.textContent = badInputMessage;
     }
     error.className = "error active";
 }
   
-  function handleInputValidation(inputField, errorField, valueMissingMessage = '', typeMismatchMessage = '', tooShortMessage = '', patternMismatchMessage = '') {
+  function handleInputValidation(inputField, errorField, valueMissingMessage = '', typeMismatchMessage = '', tooShortMessage = '', badInputMessage = '') {
     if (inputField.validity.valid) {
         errorField.textContent = "";
         errorField.className = "error";
     } else {
-        showError(inputField, errorField, valueMissingMessage, typeMismatchMessage, tooShortMessage, patternMismatchMessage);
+        showError(inputField, errorField, valueMissingMessage, typeMismatchMessage, tooShortMessage, badInputMessage);
     }
 }
   
