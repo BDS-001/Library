@@ -148,23 +148,26 @@ const formValidation = (function() {
   const pageCount = document.getElementById('book-pages')
   const pageCountError = document.querySelector('#book-pages-label .error')
 
-  function showError(input, error, valueMisingMessage = '', typeMismatchMessage = '', tooShortMessage = '') {
+  function showError(input, error, valueMissingMessage, typeMismatchMessage, tooShortMessage, patternMismatchMessage) {
+    console.log(valueMissingMessage, typeMismatchMessage, tooShortMessage, patternMismatchMessage)
     if (input.validity.valueMissing) {
-      error.textContent = valueMisingMessage;
+        error.textContent = valueMissingMessage;
     } else if (input.validity.typeMismatch) {
-      error.textContent = typeMismatchMessage;
+        error.textContent = typeMismatchMessage;
     } else if (input.validity.tooShort) {
-      error.textContent = tooShortMessage;
+        error.textContent = tooShortMessage;
+    } else if (input.validity.patternMismatch) {
+        error.textContent = patternMismatchMessage;
     }
     error.className = "error active";
-  }
+}
   
-  function handleInputValidation(inputField, errorField, valueMisingMessage, typeMismatchMessage, tooShortMessage) {
+  function handleInputValidation(inputField, errorField, valueMissingMessage = '', typeMismatchMessage = '', tooShortMessage = '', patternMismatchMessage = '') {
     if (inputField.validity.valid) {
         errorField.textContent = "";
         errorField.className = "error";
     } else {
-        showError(inputField, errorField, valueMisingMessage, typeMismatchMessage, tooShortMessage);
+        showError(inputField, errorField, valueMissingMessage, typeMismatchMessage, tooShortMessage, patternMismatchMessage);
     }
 }
   
@@ -173,8 +176,8 @@ const formValidation = (function() {
   });
   
   pageCount.addEventListener("input", (event) => {
-    handleInputValidation(pageCount, pageCountError, 'You need to enter a page count', 'Only enter numbers');
-  });
+    handleInputValidation(pageCount, pageCountError, 'You need to enter a page count', 'test2', 'test', 'Only enter numbers');
+});
   
   author.addEventListener("input", (event) => {
     handleInputValidation(author, authorError, 'you need to enter a author title');
